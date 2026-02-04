@@ -4,12 +4,27 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import './Home.css';
 
+interface HeroSlide {
+  id: number;
+  image: string;
+  title: string;
+  subtitle: string;
+}
+
+interface GalleryImage {
+  id: number;
+  url: string;
+  alt: string;
+  caption: string;
+  size: string;
+}
+
 const Home = () => {
   // Carousel state
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   // Carousel images - replace with your actual images
-  const heroSlides = [
+  const heroSlides: HeroSlide[] = [
     {
       id: 1,
       image: 'https://images.unsplash.com/photo-1504805572947-34fad45aed93?w=1600',
@@ -45,20 +60,20 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [heroSlides.length]);
 
-  const goToSlide = (index) => {
+  const goToSlide = (index: number): void => {
     setCurrentSlide(index);
   };
 
-  const nextSlide = () => {
+  const nextSlide = (): void => {
     setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
   };
 
-  const prevSlide = () => {
+  const prevSlide = (): void => {
     setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
   };
 
   // Gallery images for masonry section
-  const galleryImages = [
+  const galleryImages: GalleryImage[] = [
     {
       id: 1,
       url: 'https://images.unsplash.com/photo-1504805572947-34fad45aed93?w=800',
