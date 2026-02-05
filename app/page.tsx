@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import '../Home.css';
+import './Home.css';
 
 interface HeroSlide {
   id: number;
