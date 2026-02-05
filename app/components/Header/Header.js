@@ -43,9 +43,6 @@ const Header = () => {
               <Image 
                 src="/images/samatat.png" 
                 alt="Samatat Scout Group Logo" 
-                width={50}
-                height={50}
-                priority
               />
             </div>
             <div className={styles.headerLogoText}>
